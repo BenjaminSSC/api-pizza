@@ -6,10 +6,10 @@ const getUserByEmail = async (email) => {
   return users.find((user) => user.email === email);
 };
 
-const addUser = async (newUser) => {
+const addUser = async (user) => {
   const data = await readFile("db/users.json", "utf-8");
   const users = JSON.parse(data);
-  users.push(newUser);
+  users.push(user);
   await writeFile("db/users.json", JSON.stringify(users, null, 2));
 };
 
